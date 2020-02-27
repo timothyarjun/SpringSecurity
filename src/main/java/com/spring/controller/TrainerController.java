@@ -37,11 +37,12 @@ public class TrainerController {
 		return new ModelAndView("logout");
 	}
 	
-	@PostMapping("/add")
+	@PostMapping("training/add")
 	//@RequestMapping(value = "/add", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
 	@ResponseBody
 	public ResponseEntity<Trainer> addTrainer(@Valid @RequestBody Trainer trainer){		
 		if(trainer==null)
+			
 			return ResponseEntity.notFound().build();
 		else
 			return ResponseEntity.ok().body(service.insertTrainer(trainer));
